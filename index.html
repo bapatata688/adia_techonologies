@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ADIA Technologies - Contabilidad automática mediante aplicación móvil para pequeños negocios"
+    />
+    <title>ADIA Technologies - Contabilidad Automática</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --navy: #1b3a6f;
+        --navy-dark: #0f2347;
+        --gray: #6b7280;
+        --gray-light: #e5e7eb;
+        --white: #ffffff;
+        --accent: #3b82f6;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--navy);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-placeholder {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(27, 58, 111, 0.3);
+      }
+
+      .logo-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--navy);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-dark) 100%
+        );
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 80px;
+      }
+
+      .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-content {
+        animation: fadeInLeft 1s ease;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        color: var(--gray-light);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--white);
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        margin-right: 1rem;
+      }
+
+      .btn-primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+      }
+
+      .phone-mockup {
+        width: 300px;
+        height: 600px;
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        border-radius: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .phone-screen {
+        width: 90%;
+        height: 95%;
+        background: var(--navy);
+        border-radius: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      /* FEATURES */
+      .features {
+        padding: 6rem 2rem;
+        background: var(--white);
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--gray);
+        margin-bottom: 4rem;
+      }
+
+      .features-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+      }
+
+      .feature-card {
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 1rem;
+      }
+
+      /* VIDEO SECTION */
+      .video-section {
+        padding: 6rem 2rem;
+        background: var(--gray-light);
+      }
+
+      .video-wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        aspect-ratio: 16/9;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        background: #000;
+      }
+
+      .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* CONTACT SECTION */
+      .contact {
+        padding: 6rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-dark) 100%
+        );
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+
+      .contact-info h2 {
+        color: var(--white);
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-info p {
+        color: var(--gray-light);
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+      }
+
+      .contact-form {
+        background: var(--white);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        color: var(--navy);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid var(--gray-light);
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1.2rem;
+        background: var(--navy);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .success-message {
+        display: none;
+        padding: 1rem;
+        background: #10b981;
+        color: var(--white);
+        border-radius: 8px;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: var(--navy-dark);
+        color: var(--white);
+        padding: 3rem 2rem 1.5rem;
+        text-align: center;
+      }
+
+      /* ANIMATIONS */
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .scroll-reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero-container,
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo-container">
+          <!-- LOGO DE LA EMPRESA -->
+          <div class="logo-placeholder">
+            <img src="logo_empresa.jpeg" alt="Logo ADIA Technologies" />
+          </div>
+          <div class="logo-text">ADIA Technologies</div>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Contabilidad Automática Para Tu Negocio</h1>
+          <p class="hero-subtitle">
+            Olvídate del papeleo. Con ADIA Technologies, gestiona tus finanzas
+            desde tu celular de forma simple, rápida y segura.
+          </p>
+          <a href="#demo" class="btn btn-primary">Ver Demo</a>
+          <a href="#contacto" class="btn btn-primary">Contactar</a>
+        </div>
+        <div>
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <p>App ADIA<br />Contabilidad<br />Inteligente</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="servicios">
+      <h2 class="section-title scroll-reveal">¿Por Qué Elegir ADIA?</h2>
+      <p class="section-subtitle scroll-reveal">
+        Diseñado para pequeños negocios salvadoreños
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card scroll-reveal">
+          <div class="feature-icon">📱</div>
+          <h3 class="feature-title">100% Móvil</h3>
+          <p>
+            Gestiona tu contabilidad desde cualquier lugar. Solo necesitas tu
+            celular.
+          </p>
+        </div>
+
+        <div class="feature-card scroll-reveal">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Automático</h3>
+          <p>
+            La app calcula automáticamente tus ingresos, gastos y ganancias.
+          </p>
+        </div>
+
+        <div class="feature-card scroll-reveal">
+          <div class="feature-icon">💰</div>
+          <h3 class="feature-title">Precio Único</h3>
+          <p>Paga solo $4.99 una vez. Sin mensualidades ni cargos ocultos.</p>
+        </div>
+
+        <div class="feature-card scroll-reveal">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Reportes Claros</h3>
+          <p>
+            Visualiza tus finanzas con gráficos simples que cualquiera puede
+            entender.
+          </p>
+        </div>
+
+        <div class="feature-card scroll-reveal">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">Seguro</h3>
+          <p>
+            Tus datos protegidos y almacenados localmente en tu dispositivo.
+          </p>
+        </div>
+
+        <div class="feature-card scroll-reveal">
+          <div class="feature-icon">🇸🇻</div>
+          <h3 class="feature-title">Hecho en El Salvador</h3>
+          <p>Diseñado por salvadoreños, para salvadoreños.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="video-section" id="demo">
+      <h2 class="section-title scroll-reveal">Mira Cómo Funciona</h2>
+      <p class="section-subtitle scroll-reveal">
+        Un vistazo rápido a la simplicidad de ADIA
+      </p>
+
+      <!-- VIDEO DEMOSTRATIVO -->
+      <div class="video-wrapper scroll-reveal">
+        <video controls preload="metadata">
+          <source src="demostracion.mp4" type="video/mp4" />
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contacto">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2 class="scroll-reveal">
+            ¿Listo Para Simplificar Tu Contabilidad?
+          </h2>
+          <p class="scroll-reveal">
+            Contáctanos hoy y descubre cómo ADIA puede transformar tu negocio.
+          </p>
+
+          <div class="contact-item scroll-reveal">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>contacto@adiatech.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item scroll-reveal">
+            <div class="contact-icon">📱</div>
+            <div>
+              <h4>Teléfono</h4>
+              <p>+503 7890-1234</p>
+            </div>
+          </div>
+
+          <div class="contact-item scroll-reveal">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Ubicación</h4>
+              <p>San Salvador, El Salvador</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form scroll-reveal">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input type="text" id="name" required placeholder="Tu nombre" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="tu@correo.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea
+                id="message"
+                required
+                placeholder="¿En qué podemos ayudarte?"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            <div class="success-message" id="successMessage">
+              ¡Mensaje enviado! Te contactaremos pronto.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>
+        &copy; 2026 ADIA Technologies. Todos los derechos reservados. | Hecho en
+        🇸🇻 El Salvador
+      </p>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const scrollRevealElements = document.querySelectorAll(".scroll-reveal");
+
+      const revealOnScroll = () => {
+        scrollRevealElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          if (elementTop < window.innerHeight - 100) {
+            element.classList.add("active");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", revealOnScroll);
+      revealOnScroll();
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Form handling
+      document.getElementById("contactForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        document.getElementById("successMessage").style.display = "block";
+        e.target.reset();
+        setTimeout(() => {
+          document.getElementById("successMessage").style.display = "none";
+        }, 5000);
+      });
+    </script>
+  </body>
+</html>
