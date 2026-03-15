@@ -5,45 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ADIA Technologies - Contabilidad automática mediante aplicación móvil para pequeños negocios"
+      content="ADIA Technologies - Contabilidad automática mediante aplicación móvil"
     />
     <title>ADIA Technologies - Contabilidad Automática</title>
-
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       :root {
         --navy: #1b3a6f;
         --navy-dark: #0f2347;
+        --navy-light: #2e5c8a;
         --gray: #6b7280;
         --gray-light: #e5e7eb;
+        --gray-dark: #374151;
         --white: #ffffff;
         --accent: #3b82f6;
+        --success: #10b981;
+        --warning: #f59e0b;
       }
-
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: var(--navy);
-        line-height: 1.6;
-        overflow-x: hidden;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        color: var(--gray-dark);
+        line-height: 1.7;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
       }
 
-      /* NAVBAR */
+      /* Navbar */
       .navbar {
         position: fixed;
         top: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        transition: all 0.3s ease;
       }
-
       .nav-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -52,80 +54,66 @@
         align-items: center;
         padding: 1rem 2rem;
       }
-
       .logo-container {
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 1rem;
       }
-
       .logo-placeholder {
         width: 50px;
         height: 50px;
         border-radius: 12px;
-        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 15px rgba(27, 58, 111, 0.3);
+        overflow: hidden;
+        background: var(--white); /* Fondo blanco para el logo */
       }
-
       .logo-placeholder img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain; /* Mantiene proporciones */
       }
-
       .logo-text {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--navy);
       }
-
       .nav-links {
         display: flex;
         gap: 2rem;
         list-style: none;
       }
-
       .nav-links a {
-        color: var(--navy);
+        color: var(--gray-dark);
         text-decoration: none;
         font-weight: 500;
-        transition: color 0.3s ease;
-        position: relative;
+        transition: color 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--navy);
+        transition: all 0.3s;
       }
 
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--accent);
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-
-      /* HERO SECTION */
+      /* Hero */
       .hero {
         min-height: 100vh;
-        background: linear-gradient(
-          135deg,
-          var(--navy) 0%,
-          var(--navy-dark) 100%
-        );
+        background: linear-gradient(135deg, var(--navy), var(--navy-dark));
         display: flex;
         align-items: center;
-        position: relative;
-        overflow: hidden;
         padding-top: 80px;
       }
-
       .hero-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -134,57 +122,44 @@
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
         align-items: center;
-        position: relative;
-        z-index: 1;
       }
-
-      .hero-content {
-        animation: fadeInLeft 1s ease;
-      }
-
       .hero-title {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 800;
         color: var(--white);
         margin-bottom: 1.5rem;
-        line-height: 1.2;
       }
-
       .hero-subtitle {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         color: var(--gray-light);
         margin-bottom: 2rem;
-        line-height: 1.6;
       }
-
       .btn {
         padding: 1rem 2rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
         border: none;
         border-radius: 8px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.3s;
         text-decoration: none;
         display: inline-block;
+        margin-right: 1rem;
       }
-
       .btn-primary {
         background: var(--accent);
         color: var(--white);
-        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-        margin-right: 1rem;
       }
-
       .btn-primary:hover {
         background: #2563eb;
         transform: translateY(-2px);
       }
 
+      /* Phone Mockup */
       .phone-mockup {
         width: 300px;
         height: 600px;
-        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        background: linear-gradient(145deg, #e6e6e6, #fff);
         border-radius: 40px;
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         display: flex;
@@ -192,27 +167,47 @@
         justify-content: center;
         animation: float 3s ease-in-out infinite;
       }
-
       .phone-screen {
         width: 90%;
         height: 95%;
         background: var(--navy);
         border-radius: 35px;
+        overflow: hidden;
+        position: relative;
+      }
+      .phone-screenshot {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .phone-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--navy), var(--navy-dark));
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         color: var(--white);
-        font-size: 1.2rem;
-        text-align: center;
         padding: 2rem;
+        text-align: center;
+      }
+      .app-icon-container {
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
       }
 
-      /* FEATURES */
+      /* Features */
       .features {
         padding: 6rem 2rem;
         background: var(--white);
       }
-
       .section-title {
         text-align: center;
         font-size: 2.5rem;
@@ -220,39 +215,43 @@
         color: var(--navy);
         margin-bottom: 1rem;
       }
-
       .section-subtitle {
         text-align: center;
         font-size: 1.2rem;
         color: var(--gray);
         margin-bottom: 4rem;
       }
-
       .features-grid {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
+        gap: 2.5rem;
       }
-
       .feature-card {
         padding: 2.5rem;
         border-radius: 16px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
+        transition: all 0.3s;
       }
-
       .feature-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
-
       .feature-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--navy), var(--accent));
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
       }
-
+      .feature-icon svg {
+        width: 36px;
+        height: 36px;
+        fill: var(--white);
+      }
       .feature-title {
         font-size: 1.5rem;
         font-weight: 700;
@@ -260,39 +259,270 @@
         margin-bottom: 1rem;
       }
 
-      /* VIDEO SECTION */
+      /* Video Section */
       .video-section {
         padding: 6rem 2rem;
         background: var(--gray-light);
       }
-
       .video-wrapper {
         max-width: 1000px;
         margin: 0 auto;
-        aspect-ratio: 16/9;
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        background: #000;
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        background: #000;
       }
-
-      .video-wrapper video {
+      .video-container iframe,
+      .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        display: block;
+        border: none;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        cursor: pointer;
+      }
+      .video-placeholder:hover {
+        opacity: 0.9;
+      }
+      .play-button {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s;
+      }
+      .play-button:hover {
+        transform: scale(1.1);
+        background: white;
+      }
+      .play-button svg {
+        width: 32px;
+        height: 32px;
+        fill: var(--navy);
+        margin-left: 4px;
+      }
+      .video-instructions {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background: var(--white);
+        border-radius: 12px;
+        border-left: 4px solid var(--accent);
+      }
+      .video-instructions code {
+        background: var(--gray-light);
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.9rem;
       }
 
-      /* CONTACT SECTION */
+      /* Testimonials */
+      .testimonials {
+        padding: 6rem 2rem;
+        background: var(--white);
+      }
+      .testimonials-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+      }
+      .testimonial-card {
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid var(--accent);
+      }
+      .rating {
+        color: var(--warning);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+      .star {
+        font-size: 1.2rem;
+      }
+      .testimonial-text {
+        font-size: 1.1rem;
+        color: var(--gray-dark);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--navy), var(--accent));
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+      .testimonial-author {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      /* FAQ */
+      .faq-section {
+        padding: 6rem 2rem;
+        background: var(--gray-light);
+      }
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        background: var(--white);
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .faq-question {
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+      .faq-question h3 {
+        color: var(--navy);
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .faq-toggle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: transform 0.3s;
+      }
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        padding: 0 2rem;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        padding: 0 2rem 1.5rem;
+      }
+
+      /* Blog */
+      .blog-section {
+        padding: 6rem 2rem;
+        background: var(--white);
+      }
+      .blog-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+      }
+      .blog-card {
+        background: var(--white);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+      }
+      .blog-card:hover {
+        transform: translateY(-8px);
+      }
+      .blog-image {
+        width: 100%;
+        height: 240px;
+        background: linear-gradient(135deg, var(--navy-light), var(--accent));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .blog-image svg {
+        width: 80px;
+        height: 80px;
+        fill: var(--white);
+        opacity: 0.9;
+      }
+      .blog-content {
+        padding: 2rem;
+      }
+      .blog-category {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--white);
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .blog-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 1rem;
+      }
+      .blog-meta {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray);
+        font-size: 0.875rem;
+      }
+      .meta-item svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--accent);
+      }
+
+      /* Contact */
       .contact {
         padding: 6rem 2rem;
-        background: linear-gradient(
-          135deg,
-          var(--navy) 0%,
-          var(--navy-dark) 100%
-        );
+        background: linear-gradient(135deg, var(--navy), var(--navy-dark));
       }
-
       .contact-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -300,49 +530,51 @@
         grid-template-columns: 1fr 1fr;
         gap: 4rem;
       }
-
       .contact-info h2 {
         color: var(--white);
         font-size: 2.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
       }
-
       .contact-info p {
         color: var(--gray-light);
         font-size: 1.1rem;
         margin-bottom: 2rem;
       }
-
       .contact-item {
         display: flex;
-        align-items: center;
         gap: 1rem;
         color: var(--white);
         margin-bottom: 1.5rem;
       }
-
       .contact-icon {
-        font-size: 2rem;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-
+      .contact-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--white);
+      }
       .contact-form {
         background: var(--white);
         padding: 3rem;
         border-radius: 20px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       }
-
       .form-group {
         margin-bottom: 1.5rem;
       }
-
       .form-group label {
         display: block;
         color: var(--navy);
         font-weight: 600;
         margin-bottom: 0.5rem;
       }
-
       .form-group input,
       .form-group textarea {
         width: 100%;
@@ -352,18 +584,15 @@
         font-size: 1rem;
         font-family: inherit;
       }
-
       .form-group input:focus,
       .form-group textarea:focus {
         outline: none;
         border-color: var(--accent);
       }
-
       .form-group textarea {
         resize: vertical;
         min-height: 120px;
       }
-
       .submit-btn {
         width: 100%;
         padding: 1.2rem;
@@ -374,44 +603,58 @@
         font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.3s;
       }
-
       .submit-btn:hover {
         background: var(--accent);
         transform: translateY(-2px);
       }
-
       .success-message {
         display: none;
         padding: 1rem;
-        background: #10b981;
+        background: var(--success);
         color: var(--white);
         border-radius: 8px;
         margin-top: 1rem;
         text-align: center;
       }
+      .success-message.show {
+        display: block;
+      }
 
-      /* FOOTER */
+      /* Footer */
       .footer {
         background: var(--navy-dark);
         color: var(--white);
-        padding: 3rem 2rem 1.5rem;
+        padding: 3rem 2rem;
+      }
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 2rem;
+      }
+      .footer-section h3 {
+        margin-bottom: 1rem;
+      }
+      .footer-section a {
+        color: var(--gray-light);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .footer-section a:hover {
+        color: var(--accent);
+      }
+      .footer-bottom {
         text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      /* ANIMATIONS */
-      @keyframes fadeInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
+      /* Animations */
       @keyframes float {
         0%,
         100% {
@@ -421,59 +664,82 @@
           transform: translateY(-20px);
         }
       }
-
       .scroll-reveal {
         opacity: 0;
         transform: translateY(50px);
-        transition: all 0.8s ease;
+        transition: all 0.8s;
       }
-
       .scroll-reveal.active {
         opacity: 1;
         transform: translateY(0);
       }
 
-      /* RESPONSIVE */
+      /* Responsive */
       @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          right: -100%;
+          width: 100%;
+          background: var(--white);
+          flex-direction: column;
+          padding: 2rem;
+          transition: right 0.3s;
+        }
+        .nav-links.active {
+          right: 0;
+        }
+        .menu-toggle {
+          display: flex;
+        }
         .hero-container,
         .contact-container {
           grid-template-columns: 1fr;
         }
-
         .hero-title {
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
-
-        .features-grid {
+        .phone-mockup {
+          width: 250px;
+          height: 500px;
+        }
+        .features-grid,
+        .testimonials-grid,
+        .blog-grid {
           grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="logo-container">
-          <!-- LOGO DE LA EMPRESA -->
           <div class="logo-placeholder">
-            <img src="logo_empresa.jpeg" alt="Logo ADIA Technologies" />
+            <img src="logo_empresa.jpeg" alt="ADIA Technologies Logo" />
           </div>
           <div class="logo-text">ADIA Technologies</div>
         </div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#demo">Demo</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero" id="inicio">
       <div class="hero-container">
-        <div class="hero-content">
+        <div>
           <h1 class="hero-title">Contabilidad Automática Para Tu Negocio</h1>
           <p class="hero-subtitle">
             Olvídate del papeleo. Con ADIA Technologies, gestiona tus finanzas
@@ -485,128 +751,479 @@
         <div>
           <div class="phone-mockup">
             <div class="phone-screen">
-              <p>App ADIA<br />Contabilidad<br />Inteligente</p>
+              <!-- Para usar screenshot real, descomenta la siguiente línea y agrega tu imagen -->
+              <video
+                src="demostracion.mp4"
+                alt="ADIA App Screenshot"
+                class="phone-screenshot"
+              />
+
+              <!-- Placeholder con iconos SVG -->
+              <div class="phone-placeholder">
+                <div class="app-icon-container">
+                  <svg
+                    viewBox="0 0 24 24"
+                    style="width: 60px; height: 60px; fill: white"
+                  >
+                    <path
+                      d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+                    />
+                  </svg>
+                </div>
+                <h3
+                  style="
+                    font-size: 1.75rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  ADIA
+                </h3>
+                <p style="font-size: 1.1rem; opacity: 0.9; font-weight: 500">
+                  Contabilidad Inteligente
+                </p>
+                <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem">
+                  Tu negocio en orden
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section class="features" id="servicios">
-      <h2 class="section-title scroll-reveal">¿Por Qué Elegir ADIA?</h2>
-      <p class="section-subtitle scroll-reveal">
-        Diseñado para pequeños negocios salvadoreños
-      </p>
-
-      <div class="features-grid">
-        <div class="feature-card scroll-reveal">
-          <div class="feature-icon">📱</div>
-          <h3 class="feature-title">100% Móvil</h3>
-          <p>
-            Gestiona tu contabilidad desde cualquier lugar. Solo necesitas tu
-            celular.
-          </p>
-        </div>
-
-        <div class="feature-card scroll-reveal">
-          <div class="feature-icon">⚡</div>
-          <h3 class="feature-title">Automático</h3>
-          <p>
-            La app calcula automáticamente tus ingresos, gastos y ganancias.
-          </p>
-        </div>
-
-        <div class="feature-card scroll-reveal">
-          <div class="feature-icon">💰</div>
-          <h3 class="feature-title">Precio Único</h3>
-          <p>Paga solo $4.99 una vez. Sin mensualidades ni cargos ocultos.</p>
-        </div>
-
-        <div class="feature-card scroll-reveal">
-          <div class="feature-icon">📊</div>
-          <h3 class="feature-title">Reportes Claros</h3>
-          <p>
-            Visualiza tus finanzas con gráficos simples que cualquiera puede
-            entender.
-          </p>
-        </div>
-
-        <div class="feature-card scroll-reveal">
-          <div class="feature-icon">🔒</div>
-          <h3 class="feature-title">Seguro</h3>
-          <p>
-            Tus datos protegidos y almacenados localmente en tu dispositivo.
-          </p>
-        </div>
-
-        <div class="feature-card scroll-reveal">
-          <div class="feature-icon">🇸🇻</div>
-          <h3 class="feature-title">Hecho en El Salvador</h3>
-          <p>Diseñado por salvadoreños, para salvadoreños.</p>
+      <div class="container">
+        <h2 class="section-title">Por Qué Elegir ADIA</h2>
+        <p class="section-subtitle">
+          Diseñado para pequeños negocios salvadoreños
+        </p>
+        <div class="features-grid">
+          <div class="feature-card scroll-reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">100% Móvil</h3>
+            <p>
+              Gestiona tu contabilidad desde cualquier lugar. Solo necesitas tu
+              celular.
+            </p>
+          </div>
+          <div class="feature-card scroll-reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 2v11h3v9l7-12h-4l4-8z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Automático</h3>
+            <p>
+              La app calcula automáticamente tus ingresos, gastos y ganancias.
+            </p>
+          </div>
+          <div class="feature-card scroll-reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Precio Único</h3>
+            <p>Paga solo $4.99 una vez. Sin mensualidades ni cargos ocultos.</p>
+          </div>
+          <div class="feature-card scroll-reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Reportes Claros</h3>
+            <p>Visualiza tus finanzas con gráficos simples.</p>
+          </div>
+          <div class="feature-card scroll-reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Seguro</h3>
+            <p>Tus datos protegidos y almacenados localmente.</p>
+          </div>
+          <div class="feature-card scroll-reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
+              </svg>
+            </div>
+            <h3 class="feature-title">Hecho en El Salvador</h3>
+            <p>Diseñado por salvadoreños, para salvadoreños.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- VIDEO -->
     <section class="video-section" id="demo">
-      <h2 class="section-title scroll-reveal">Mira Cómo Funciona</h2>
-      <p class="section-subtitle scroll-reveal">
-        Un vistazo rápido a la simplicidad de ADIA
-      </p>
+      <div class="container">
+        <h2 class="section-title">Mira Cómo Funciona</h2>
+        <p class="section-subtitle">
+          Un vistazo rápido a la simplicidad de ADIA
+        </p>
 
-      <!-- VIDEO DEMOSTRATIVO -->
-      <div class="video-wrapper scroll-reveal">
-        <video controls preload="metadata">
-          <source src="demostracion.mp4" type="video/mp4" />
-          Tu navegador no soporta video HTML5.
-        </video>
+        <div class="video-wrapper scroll-reveal">
+          <div class="video-container" id="videoContainer">
+            <!-- Placeholder - Será reemplazado por video -->
+            <div class="video-placeholder" id="videoPlaceholder">
+              <div class="play-button">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <p style="font-size: 1.5rem; font-weight: 600">
+                Video Demostrativo
+              </p>
+              <p style="font-size: 1rem; opacity: 0.8; margin-top: 0.5rem">
+                Click para reproducir
+              </p>
+            </div>
+
+            <!-- ESPACIO PARA VIDEO - Descomenta una de las siguientes opciones: -->
+
+            <!-- Opción 1: YouTube -->
+            <!-- <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe> -->
+
+            <!-- Opción 2: Vimeo -->
+            <!-- <iframe src="https://player.vimeo.com/video/TU_VIDEO_ID" allowfullscreen></iframe> -->
+
+            <video controls>
+              <source src="lp.mp4" type="video/mp4" />
+              Tu navegador no soporta video HTML5.
+            </video>
+          </div>
+
+          <div class="video-instructions">
+            <h4 style="margin-bottom: 0.5rem; color: var(--navy)">
+              Instrucciones para agregar tu video:
+            </h4>
+            <p style="margin-bottom: 1rem; font-size: 0.95rem">
+              Edita el archivo HTML y descomenta una de las siguientes opciones:
+            </p>
+            <p style="margin-bottom: 0.5rem"><strong>YouTube:</strong></p>
+            <code
+              >&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"
+              allowfullscreen&gt;&lt;/iframe&gt;</code
+            >
+            <p style="margin: 1rem 0 0.5rem"><strong>Video Local:</strong></p>
+            <code
+              >&lt;video controls&gt;&lt;source src="demo.mp4"
+              type="video/mp4"&gt;&lt;/video&gt;</code
+            >
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card scroll-reveal">
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">
+              Antes llevaba todo en cuadernos y siempre perdía papeles. Con ADIA
+              puedo ver exactamente cuánto gané hoy. Es increíble.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div>
+                <h4>María Rodríguez</h4>
+                <p>Pupusería Doña Mary - San Salvador</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card scroll-reveal">
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">
+              Pagué solo $4.99 y ya llevo 6 meses usándola. Me ahorro horas de
+              trabajo. La mejor inversión.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JM</div>
+              <div>
+                <h4>José Martínez</h4>
+                <p>Comedor El Buen Sabor - Santa Ana</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card scroll-reveal">
+            <div class="rating">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <p class="testimonial-text">
+              Soy de la vieja escuela pero ADIA es tan fácil que hasta yo pude
+              aprenderla.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">CG</div>
+              <div>
+                <h4>Carlos Gómez</h4>
+                <p>Cafetería Don Carlos - San Miguel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <div class="faq-container">
+          <div class="faq-item" data-faq>
+            <div class="faq-question">
+              <h3>¿Necesito internet para usar ADIA?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>
+                No, ADIA funciona 100% sin internet. Todos tus datos se guardan
+                localmente en tu celular.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-faq>
+            <div class="faq-question">
+              <h3>¿Es realmente de pago único?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Sí, pagas $4.99 una sola vez y la app es tuya para siempre. Sin
+                mensualidades.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-faq>
+            <div class="faq-question">
+              <h3>¿Qué pasa si cambio de celular?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>
+                Tu compra está vinculada a tu cuenta. Solo descarga nuevamente
+                con la misma cuenta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-section" id="blog">
+      <div class="container">
+        <h2 class="section-title">Blog de ADIA</h2>
+        <div class="blog-grid">
+          <article class="blog-card scroll-reveal">
+            <div class="blog-image">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
+                />
+              </svg>
+            </div>
+            <div class="blog-content">
+              <span class="blog-category">Guías</span>
+              <h3 class="blog-title">
+                5 Errores Fatales en la Contabilidad de Tu Negocio
+              </h3>
+              <div class="blog-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                  ADIA Team
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                    />
+                  </svg>
+                  15 Feb 2026
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
+                    />
+                  </svg>
+                  5 min
+                </span>
+              </div>
+              <p>
+                Descubre los errores más comunes y cómo solucionarlos antes de
+                que te cuesten dinero.
+              </p>
+              <a href="#" class="read-more">Leer más &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card scroll-reveal">
+            <div class="blog-image">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"
+                />
+              </svg>
+            </div>
+            <div class="blog-content">
+              <span class="blog-category">Consejos</span>
+              <h3 class="blog-title">
+                Cómo Duplicar Tus Ganancias Sin Vender Más
+              </h3>
+              <div class="blog-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                  María González
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                    />
+                  </svg>
+                  10 Feb 2026
+                </span>
+              </div>
+              <p>El poder del control financiero. Incluye plantilla gratis.</p>
+              <a href="#" class="read-more">Leer más &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card scroll-reveal">
+            <div class="blog-image">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"
+                />
+              </svg>
+            </div>
+            <div class="blog-content">
+              <span class="blog-category">Historias</span>
+              <h3 class="blog-title">
+                De Cuadernos a Digital: Historia de Doña Mary
+              </h3>
+              <div class="blog-meta">
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                    />
+                  </svg>
+                  Carlos Mendoza
+                </span>
+                <span class="meta-item">
+                  <svg viewBox="0 0 24 24">
+                    <path
+                      d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
+                    />
+                  </svg>
+                  5 Feb 2026
+                </span>
+              </div>
+              <p>
+                A sus 52 años transformó su pupusería. +35% de claridad
+                financiera.
+              </p>
+              <a href="#" class="read-more">Leer más &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contacto">
       <div class="contact-container">
         <div class="contact-info">
-          <h2 class="scroll-reveal">
-            ¿Listo Para Simplificar Tu Contabilidad?
-          </h2>
-          <p class="scroll-reveal">
+          <h2>¿Listo Para Simplificar Tu Contabilidad?</h2>
+          <p>
             Contáctanos hoy y descubre cómo ADIA puede transformar tu negocio.
           </p>
-
-          <div class="contact-item scroll-reveal">
-            <div class="contact-icon">📧</div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+            </div>
             <div>
               <h4>Email</h4>
               <p>contacto@adiatech.com</p>
             </div>
           </div>
-
-          <div class="contact-item scroll-reveal">
-            <div class="contact-icon">📱</div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+            </div>
             <div>
               <h4>Teléfono</h4>
               <p>+503 7890-1234</p>
             </div>
           </div>
-
-          <div class="contact-item scroll-reveal">
-            <div class="contact-icon">📍</div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
             <div>
               <h4>Ubicación</h4>
               <p>San Salvador, El Salvador</p>
             </div>
           </div>
         </div>
-
-        <div class="contact-form scroll-reveal">
+        <div class="contact-form">
           <form id="contactForm">
             <div class="form-group">
               <label for="name">Nombre Completo</label>
               <input type="text" id="name" required placeholder="Tu nombre" />
             </div>
-
             <div class="form-group">
               <label for="email">Correo Electrónico</label>
               <input
@@ -616,7 +1233,6 @@
                 placeholder="tu@correo.com"
               />
             </div>
-
             <div class="form-group">
               <label for="message">Mensaje</label>
               <textarea
@@ -625,58 +1241,117 @@
                 placeholder="¿En qué podemos ayudarte?"
               ></textarea>
             </div>
-
             <button type="submit" class="submit-btn">Enviar Mensaje</button>
             <div class="success-message" id="successMessage">
-              ¡Mensaje enviado! Te contactaremos pronto.
+              Mensaje enviado exitosamente. Te contactaremos pronto.
             </div>
           </form>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
-      <p>
-        &copy; 2026 ADIA Technologies. Todos los derechos reservados. | Hecho en
-        🇸🇻 El Salvador
-      </p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>ADIA Technologies</h3>
+          <p>
+            Simplificando la contabilidad para pequeños negocios salvadoreños
+            desde 2025.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Enlaces</h3>
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#blog">Blog</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contacto</h3>
+          <p>contacto@adiatech.com</p>
+          <p>+503 7890-1234</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ADIA Technologies. Hecho en El Salvador</p>
+      </div>
     </footer>
 
     <script>
-      // Scroll reveal
-      const scrollRevealElements = document.querySelectorAll(".scroll-reveal");
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        navbar.style.boxShadow =
+          window.scrollY > 50
+            ? "0 4px 12px rgba(0,0,0,0.15)"
+            : "0 2px 8px rgba(0,0,0,0.1)";
+      });
 
-      const revealOnScroll = () => {
-        scrollRevealElements.forEach((element) => {
-          const elementTop = element.getBoundingClientRect().top;
-          if (elementTop < window.innerHeight - 100) {
-            element.classList.add("active");
-          }
-        });
-      };
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
 
-      window.addEventListener("scroll", revealOnScroll);
-      revealOnScroll();
+      // Close menu on link click
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () =>
+          navLinks.classList.remove("active"),
+        );
+      });
 
       // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) target.scrollIntoView({ behavior: "smooth" });
         });
       });
 
-      // Form handling
+      // Scroll reveal animation
+      const scrollReveal = () => {
+        document.querySelectorAll(".scroll-reveal").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("active");
+          }
+        });
+      };
+      window.addEventListener("scroll", scrollReveal);
+      scrollReveal();
+
+      // FAQ accordion
+      document.querySelectorAll("[data-faq]").forEach((item) => {
+        item.querySelector(".faq-question").addEventListener("click", () => {
+          const wasActive = item.classList.contains("active");
+          document
+            .querySelectorAll("[data-faq]")
+            .forEach((i) => i.classList.remove("active"));
+          if (!wasActive) item.classList.add("active");
+        });
+      });
+
+      // Video placeholder click (loads video)
+      document
+        .getElementById("videoPlaceholder")
+        .addEventListener("click", function () {
+          // Ejemplo: Cargar video de YouTube
+          // Descomenta y reemplaza VIDEO_ID con tu ID real
+          /*
+            this.innerHTML = '<iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" allowfullscreen></iframe>';
+            */
+          alert(
+            "Para activar el video:\n\n1. Edita el archivo HTML\n2. Busca la sección de video\n3. Descomenta el iframe de YouTube o agrega tu video local",
+          );
+        });
+
+      // Contact form submission
       document.getElementById("contactForm").addEventListener("submit", (e) => {
         e.preventDefault();
-        document.getElementById("successMessage").style.display = "block";
+        const successMsg = document.getElementById("successMessage");
+        successMsg.classList.add("show");
         e.target.reset();
-        setTimeout(() => {
-          document.getElementById("successMessage").style.display = "none";
-        }, 5000);
+        setTimeout(() => successMsg.classList.remove("show"), 5000);
       });
     </script>
   </body>
