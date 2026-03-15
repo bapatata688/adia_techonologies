@@ -29,24 +29,21 @@
       }
 
       html {
-        /* Evita overflow horizontal en móvil */
         overflow-x: hidden;
       }
-
       body {
         font-family: "Segoe UI", Tahoma, sans-serif;
         color: var(--gray-dark);
         line-height: 1.7;
         overflow-x: hidden;
       }
-
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 1.25rem;
       }
 
-      /* ─── NAVBAR ─────────────────────────────────────────── */
+      /* ── NAVBAR ── */
       .navbar {
         position: fixed;
         top: 0;
@@ -55,7 +52,6 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         z-index: 1000;
       }
-
       .nav-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -64,13 +60,11 @@
         align-items: center;
         padding: 0.875rem 1.25rem;
       }
-
       .logo-container {
         display: flex;
         align-items: center;
         gap: 0.75rem;
       }
-
       .logo-placeholder {
         width: 44px;
         height: 44px;
@@ -82,13 +76,11 @@
         background: var(--white);
         flex-shrink: 0;
       }
-
       .logo-placeholder img {
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
-
       .logo-text {
         font-size: 1.35rem;
         font-weight: 700;
@@ -96,12 +88,12 @@
         white-space: nowrap;
       }
 
+      /* Desktop nav */
       .nav-links {
         display: flex;
         gap: 2rem;
         list-style: none;
       }
-
       .nav-links a {
         color: var(--gray-dark);
         text-decoration: none;
@@ -109,23 +101,21 @@
         transition: color 0.3s;
         white-space: nowrap;
       }
-
       .nav-links a:hover {
         color: var(--accent);
       }
 
-      /* Hamburger — oculto en desktop */
+      /* Hamburger — solo visible en móvil */
       .menu-toggle {
         display: none;
         flex-direction: column;
         gap: 5px;
         cursor: pointer;
-        padding: 4px;
+        padding: 6px;
         border: none;
         background: transparent;
         -webkit-tap-highlight-color: transparent;
       }
-
       .menu-toggle span {
         width: 25px;
         height: 3px;
@@ -134,8 +124,18 @@
         transition: all 0.3s;
         display: block;
       }
+      /* Animación X al abrir */
+      .menu-toggle.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
 
-      /* ─── HERO ───────────────────────────────────────────── */
+      /* ── HERO ── */
       .hero {
         min-height: 100vh;
         background: linear-gradient(135deg, var(--navy), var(--navy-dark));
@@ -143,7 +143,6 @@
         align-items: center;
         padding-top: 70px;
       }
-
       .hero-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -153,7 +152,6 @@
         gap: 4rem;
         align-items: center;
       }
-
       .hero-title {
         font-size: 3rem;
         font-weight: 800;
@@ -161,13 +159,11 @@
         margin-bottom: 1.5rem;
         line-height: 1.2;
       }
-
       .hero-subtitle {
         font-size: 1.25rem;
         color: var(--gray-light);
         margin-bottom: 2rem;
       }
-
       .btn {
         padding: 0.9rem 1.75rem;
         font-size: 1rem;
@@ -182,12 +178,10 @@
         margin-bottom: 0.5rem;
         -webkit-tap-highlight-color: transparent;
       }
-
       .btn-primary {
         background: var(--accent);
         color: var(--white);
       }
-
       .btn-primary:hover {
         background: #2563eb;
         transform: translateY(-2px);
@@ -204,10 +198,8 @@
         align-items: center;
         justify-content: center;
         animation: float 3s ease-in-out infinite;
-        /* Centrado cuando está solo */
         margin: 0 auto;
       }
-
       .phone-screen {
         width: 90%;
         height: 95%;
@@ -216,13 +208,11 @@
         overflow: hidden;
         position: relative;
       }
-
       .phone-screenshot {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-
       .phone-placeholder {
         width: 100%;
         height: 100%;
@@ -235,7 +225,6 @@
         padding: 2rem;
         text-align: center;
       }
-
       .app-icon-container {
         width: 100px;
         height: 100px;
@@ -247,12 +236,11 @@
         margin-bottom: 2rem;
       }
 
-      /* ─── FEATURES ───────────────────────────────────────── */
+      /* ── FEATURES ── */
       .features {
         padding: 5rem 1.25rem;
         background: var(--white);
       }
-
       .section-title {
         text-align: center;
         font-size: 2.25rem;
@@ -261,7 +249,6 @@
         margin-bottom: 0.75rem;
         line-height: 1.25;
       }
-
       .section-subtitle {
         text-align: center;
         font-size: 1.1rem;
@@ -271,7 +258,6 @@
         margin-left: auto;
         margin-right: auto;
       }
-
       .features-grid {
         max-width: 1200px;
         margin: 0 auto;
@@ -279,18 +265,15 @@
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
       }
-
       .feature-card {
         padding: 2.25rem;
         border-radius: 16px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transition: all 0.3s;
       }
-
       .feature-card:hover {
         transform: translateY(-8px);
       }
-
       .feature-icon {
         width: 64px;
         height: 64px;
@@ -301,13 +284,11 @@
         justify-content: center;
         margin-bottom: 1.25rem;
       }
-
       .feature-icon svg {
         width: 32px;
         height: 32px;
         fill: var(--white);
       }
-
       .feature-title {
         font-size: 1.35rem;
         font-weight: 700;
@@ -315,17 +296,15 @@
         margin-bottom: 0.75rem;
       }
 
-      /* ─── VIDEO SECTION ──────────────────────────────────── */
+      /* ── VIDEO ── */
       .video-section {
         padding: 5rem 1.25rem;
         background: var(--gray-light);
       }
-
       .video-wrapper {
         max-width: 1000px;
         margin: 0 auto;
       }
-
       .video-container {
         position: relative;
         width: 100%;
@@ -335,7 +314,6 @@
         overflow: hidden;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
       }
-
       .video-container iframe,
       .video-container video {
         position: absolute;
@@ -345,7 +323,6 @@
         height: 100%;
         border: none;
       }
-
       .video-placeholder {
         position: absolute;
         top: 0;
@@ -360,11 +337,9 @@
         color: var(--white);
         cursor: pointer;
       }
-
       .video-placeholder:hover {
         opacity: 0.9;
       }
-
       .play-button {
         width: 72px;
         height: 72px;
@@ -376,12 +351,10 @@
         margin-bottom: 1.25rem;
         transition: all 0.3s;
       }
-
       .play-button:hover {
         transform: scale(1.1);
         background: white;
       }
-
       .play-button svg {
         width: 28px;
         height: 28px;
@@ -389,60 +362,37 @@
         margin-left: 4px;
       }
 
-      .video-instructions {
-        margin-top: 1.5rem;
-        padding: 1.25rem 1.5rem;
-        background: var(--white);
-        border-radius: 12px;
-        border-left: 4px solid var(--accent);
-      }
-
-      .video-instructions code {
-        background: var(--gray-light);
-        padding: 0.2rem 0.45rem;
-        border-radius: 4px;
-        font-family: monospace;
-        font-size: 0.875rem;
-        word-break: break-all;
-      }
-
-      /* ─── TESTIMONIALS ───────────────────────────────────── */
+      /* ── TESTIMONIALS ── */
       .testimonials {
         padding: 5rem 1.25rem;
         background: var(--white);
       }
-
       .testimonials-grid {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
       }
-
       .testimonial-card {
         padding: 2.25rem;
         border-radius: 16px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         border-left: 4px solid var(--accent);
       }
-
       .rating {
         color: var(--warning);
         margin-bottom: 1rem;
       }
-
       .star {
         font-size: 1.1rem;
       }
-
       .testimonial-text {
         font-size: 1.05rem;
         color: var(--gray-dark);
         line-height: 1.8;
         margin-bottom: 1.5rem;
       }
-
       .author-avatar {
         width: 46px;
         height: 46px;
@@ -456,24 +406,21 @@
         font-size: 1.1rem;
         flex-shrink: 0;
       }
-
       .testimonial-author {
         display: flex;
         gap: 1rem;
         align-items: center;
       }
 
-      /* ─── FAQ ────────────────────────────────────────────── */
+      /* ── FAQ ── */
       .faq-section {
         padding: 5rem 1.25rem;
         background: var(--gray-light);
       }
-
       .faq-container {
         max-width: 800px;
         margin: 0 auto;
       }
-
       .faq-item {
         background: var(--white);
         margin-bottom: 0.875rem;
@@ -481,7 +428,6 @@
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       }
-
       .faq-question {
         padding: 1.25rem 1.5rem;
         display: flex;
@@ -491,14 +437,12 @@
         gap: 1rem;
         -webkit-tap-highlight-color: transparent;
       }
-
       .faq-question h3 {
         color: var(--navy);
         font-size: 1rem;
         font-weight: 600;
         line-height: 1.4;
       }
-
       .faq-toggle {
         width: 28px;
         height: 28px;
@@ -513,11 +457,9 @@
         transition: transform 0.3s;
         line-height: 1;
       }
-
       .faq-item.active .faq-toggle {
         transform: rotate(45deg);
       }
-
       .faq-answer {
         max-height: 0;
         overflow: hidden;
@@ -526,26 +468,23 @@
           padding 0.35s ease;
         padding: 0 1.5rem;
       }
-
       .faq-item.active .faq-answer {
         max-height: 500px;
         padding: 0 1.5rem 1.5rem;
       }
 
-      /* ─── BLOG ───────────────────────────────────────────── */
+      /* ── BLOG ── */
       .blog-section {
         padding: 5rem 1.25rem;
         background: var(--white);
       }
-
       .blog-grid {
         max-width: 1200px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
       }
-
       .blog-card {
         background: var(--white);
         border-radius: 16px;
@@ -553,31 +492,26 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transition: all 0.3s;
       }
-
       .blog-card:hover {
         transform: translateY(-6px);
       }
-
       .blog-image {
         width: 100%;
-        height: 220px;
+        height: 200px;
         background: linear-gradient(135deg, var(--navy-light), var(--accent));
         display: flex;
         align-items: center;
         justify-content: center;
       }
-
       .blog-image svg {
-        width: 72px;
-        height: 72px;
+        width: 64px;
+        height: 64px;
         fill: var(--white);
         opacity: 0.9;
       }
-
       .blog-content {
         padding: 1.75rem;
       }
-
       .blog-category {
         display: inline-block;
         background: var(--accent);
@@ -590,43 +524,49 @@
         margin-bottom: 0.875rem;
         letter-spacing: 0.04em;
       }
-
       .blog-title {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--navy);
-        margin-bottom: 0.875rem;
+        margin-bottom: 0.75rem;
         line-height: 1.35;
       }
-
       .blog-meta {
         display: flex;
-        gap: 1.25rem;
-        margin-bottom: 0.875rem;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
         flex-wrap: wrap;
       }
-
       .meta-item {
         display: flex;
         align-items: center;
         gap: 0.4rem;
         color: var(--gray);
-        font-size: 0.85rem;
+        font-size: 0.82rem;
       }
-
       .meta-item svg {
-        width: 15px;
-        height: 15px;
+        width: 14px;
+        height: 14px;
         fill: var(--accent);
         flex-shrink: 0;
       }
+      .read-more {
+        display: inline-block;
+        margin-top: 0.75rem;
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .read-more:hover {
+        text-decoration: underline;
+      }
 
-      /* ─── CONTACT ────────────────────────────────────────── */
+      /* ── CONTACT ── */
       .contact {
         padding: 5rem 1.25rem;
         background: linear-gradient(135deg, var(--navy), var(--navy-dark));
       }
-
       .contact-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -635,7 +575,6 @@
         gap: 4rem;
         align-items: start;
       }
-
       .contact-info h2 {
         color: var(--white);
         font-size: 2.25rem;
@@ -643,13 +582,11 @@
         margin-bottom: 1rem;
         line-height: 1.25;
       }
-
       .contact-info p {
         color: var(--gray-light);
         font-size: 1.05rem;
         margin-bottom: 2rem;
       }
-
       .contact-item {
         display: flex;
         gap: 1rem;
@@ -657,7 +594,6 @@
         margin-bottom: 1.25rem;
         align-items: center;
       }
-
       .contact-icon {
         width: 46px;
         height: 46px;
@@ -668,24 +604,20 @@
         align-items: center;
         justify-content: center;
       }
-
       .contact-icon svg {
         width: 22px;
         height: 22px;
         fill: var(--white);
       }
-
       .contact-form {
         background: var(--white);
         padding: 2.5rem;
         border-radius: 20px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
       }
-
       .form-group {
         margin-bottom: 1.25rem;
       }
-
       .form-group label {
         display: block;
         color: var(--navy);
@@ -693,31 +625,25 @@
         margin-bottom: 0.45rem;
         font-size: 0.95rem;
       }
-
       .form-group input,
       .form-group textarea {
         width: 100%;
         padding: 0.875rem 1rem;
         border: 2px solid var(--gray-light);
         border-radius: 8px;
-        font-size: 1rem;
+        font-size: 16px;
         font-family: inherit;
         transition: border-color 0.25s;
-        /* Fix zoom en iOS cuando font-size < 16px */
-        font-size: 16px;
       }
-
       .form-group input:focus,
       .form-group textarea:focus {
         outline: none;
         border-color: var(--accent);
       }
-
       .form-group textarea {
         resize: vertical;
         min-height: 120px;
       }
-
       .submit-btn {
         width: 100%;
         padding: 1.1rem;
@@ -731,12 +657,10 @@
         transition: all 0.3s;
         -webkit-tap-highlight-color: transparent;
       }
-
       .submit-btn:hover {
         background: var(--accent);
         transform: translateY(-2px);
       }
-
       .success-message {
         display: none;
         padding: 1rem;
@@ -746,33 +670,33 @@
         margin-top: 1rem;
         text-align: center;
       }
-
       .success-message.show {
         display: block;
       }
 
-      /* ─── FOOTER ─────────────────────────────────────────── */
+      /* ── FOOTER ── */
       .footer {
         background: var(--navy-dark);
         color: var(--white);
         padding: 3rem 1.25rem 2rem;
       }
-
       .footer-content {
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 0 auto 2rem;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 2.5rem;
-        margin-bottom: 2rem;
       }
-
       .footer-section h3 {
         margin-bottom: 1rem;
         font-size: 1rem;
         font-weight: 600;
       }
-
+      .footer-section p {
+        color: var(--gray-light);
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+      }
       .footer-section a {
         color: var(--gray-light);
         text-decoration: none;
@@ -781,11 +705,9 @@
         font-size: 0.9rem;
         transition: color 0.25s;
       }
-
       .footer-section a:hover {
         color: var(--accent);
       }
-
       .footer-bottom {
         text-align: center;
         padding-top: 1.75rem;
@@ -794,7 +716,7 @@
         color: var(--gray-light);
       }
 
-      /* ─── ANIMATIONS ─────────────────────────────────────── */
+      /* ── ANIMATIONS ── */
       @keyframes float {
         0%,
         100% {
@@ -804,7 +726,6 @@
           transform: translateY(-18px);
         }
       }
-
       .scroll-reveal {
         opacity: 0;
         transform: translateY(40px);
@@ -812,111 +733,115 @@
           opacity 0.7s ease,
           transform 0.7s ease;
       }
-
       .scroll-reveal.active {
         opacity: 1;
         transform: translateY(0);
       }
 
-      /* ═══════════════════════════════════════════════════════
-   RESPONSIVE — TABLET  (≤ 1024px)
-═══════════════════════════════════════════════════════ */
+      /* ══════════════════════════════════════
+         TABLET ≤ 1024px
+      ══════════════════════════════════════ */
       @media (max-width: 1024px) {
         .hero-title {
           font-size: 2.5rem;
         }
-
         .hero-container {
           gap: 2.5rem;
         }
-
         .contact-container {
           gap: 2.5rem;
         }
-
         .phone-mockup {
           width: 260px;
           height: 520px;
         }
       }
 
-      /* ═══════════════════════════════════════════════════════
-   RESPONSIVE — MÓVIL  (≤ 768px)
-═══════════════════════════════════════════════════════ */
+      /* ══════════════════════════════════════
+         MÓVIL ≤ 768px
+      ══════════════════════════════════════ */
       @media (max-width: 768px) {
-        /* Navbar móvil */
+        /* ── Menú móvil: drawer desde arriba ── */
+        .menu-toggle {
+          display: flex;
+        }
+
         .nav-links {
+          /* Por defecto: oculto fuera de pantalla hacia arriba */
           position: fixed;
-          top: 68px;
+          top: 68px; /* justo debajo del navbar */
           left: 0;
-          right: -100%;
           width: 100%;
-          height: calc(100vh - 68px);
+          /* Solo ocupa lo que necesita, no toda la pantalla */
+          max-height: 0;
+          overflow: hidden;
           background: var(--white);
           flex-direction: column;
-          padding: 2rem 1.5rem;
           gap: 0;
-          transition: right 0.3s ease;
-          overflow-y: auto;
-          box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+          /* Transición suave */
+          transition:
+            max-height 0.35s ease,
+            box-shadow 0.35s ease;
+          box-shadow: none;
+          /* Resetear el display:flex que viene de desktop */
+          display: flex;
+        }
+
+        /* Cuando está abierto */
+        .nav-links.active {
+          max-height: 500px; /* suficiente para todos los items */
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
         }
 
         .nav-links li {
           border-bottom: 1px solid var(--gray-light);
         }
+        .nav-links li:last-child {
+          border-bottom: none;
+        }
 
         .nav-links a {
           display: block;
-          padding: 1rem 0;
-          font-size: 1.1rem;
+          padding: 1rem 1.5rem;
+          font-size: 1.05rem;
+          color: var(--navy);
         }
 
-        .nav-links.active {
-          right: 0;
-        }
-
-        .menu-toggle {
-          display: flex;
-        }
-
-        /* Hero — una sola columna */
+        /* ── Hero ── */
         .hero {
           padding-top: 68px;
           align-items: flex-start;
         }
-
         .hero-container {
           grid-template-columns: 1fr;
-          gap: 2.5rem;
+          gap: 2rem;
           padding: 2.5rem 1.25rem 3rem;
           text-align: center;
         }
-
         .hero-title {
           font-size: 2rem;
           margin-bottom: 1rem;
         }
-
         .hero-subtitle {
           font-size: 1.05rem;
           margin-bottom: 1.75rem;
         }
-
         .hero .btn {
+          display: block;
           width: 100%;
           margin-right: 0;
           margin-bottom: 0.75rem;
           text-align: center;
         }
 
-        /* Phone más pequeño y centrado */
+        /* Phone */
         .phone-mockup {
-          width: 220px;
-          height: 440px;
-          animation: none; /* ahorra batería en móvil */
+          width: 210px;
+          height: 420px;
+          animation: none;
         }
 
-        /* Sections — menos padding vertical */
+        /* Sections */
         .features,
         .video-section,
         .testimonials,
@@ -925,63 +850,51 @@
         .contact {
           padding: 3.5rem 1.25rem;
         }
-
         .section-title {
           font-size: 1.85rem;
         }
-
         .section-subtitle {
           font-size: 1rem;
-          margin-bottom: 2.5rem;
+          margin-bottom: 2rem;
         }
 
-        /* Features — 1 columna en móvil pequeño */
+        /* Grids → 1 columna */
         .features-grid {
           grid-template-columns: 1fr;
-          gap: 1.5rem;
+          gap: 1.25rem;
         }
-
         .feature-card {
           padding: 1.75rem;
         }
-
-        /* Testimonials — 1 columna */
         .testimonials-grid {
           grid-template-columns: 1fr;
         }
-
-        /* Blog — 1 columna */
         .blog-grid {
           grid-template-columns: 1fr;
         }
-
         .blog-image {
-          height: 200px;
+          height: 180px;
         }
 
-        /* Contact — 1 columna */
+        /* Contact */
         .contact-container {
           grid-template-columns: 1fr;
-          gap: 2.5rem;
+          gap: 2rem;
         }
-
         .contact-info h2 {
           font-size: 1.85rem;
         }
-
         .contact-form {
           padding: 1.75rem 1.25rem;
         }
 
         /* FAQ */
         .faq-question {
-          padding: 1.1rem 1.25rem;
+          padding: 1rem 1.25rem;
         }
-
         .faq-answer {
           padding: 0 1.25rem;
         }
-
         .faq-item.active .faq-answer {
           padding: 0 1.25rem 1.25rem;
         }
@@ -993,58 +906,43 @@
         }
       }
 
-      /* ═══════════════════════════════════════════════════════
-   RESPONSIVE — MÓVIL PEQUEÑO  (≤ 480px)
-═══════════════════════════════════════════════════════ */
+      /* ══════════════════════════════════════
+         MÓVIL PEQUEÑO ≤ 480px
+      ══════════════════════════════════════ */
       @media (max-width: 480px) {
+        .logo-text {
+          font-size: 1.1rem;
+        }
         .hero-title {
           font-size: 1.75rem;
         }
-
         .section-title {
-          font-size: 1.65rem;
+          font-size: 1.6rem;
         }
-
         .phone-mockup {
-          width: 190px;
-          height: 380px;
+          width: 175px;
+          height: 350px;
         }
-
         .footer-content {
           grid-template-columns: 1fr;
         }
-
-        .testimonials-grid,
-        .blog-grid {
-          grid-template-columns: 1fr;
-        }
-
         .contact-form {
           padding: 1.5rem 1rem;
         }
-
-        /* Botones de héroe — full width apilados */
-        .hero .btn {
-          display: block;
-          width: 100%;
-          margin-right: 0;
-        }
       }
 
-      /* ═══════════════════════════════════════════════════════
-   ACCESIBILIDAD — reduce motion
-═══════════════════════════════════════════════════════ */
+      /* ══════════════════════════════════════
+         ACCESIBILIDAD
+      ══════════════════════════════════════ */
       @media (prefers-reduced-motion: reduce) {
         .phone-mockup {
           animation: none;
         }
-
         .scroll-reveal {
           opacity: 1;
           transform: none;
           transition: none;
         }
-
         .btn,
         .feature-card,
         .blog-card,
@@ -1094,14 +992,14 @@
         <div>
           <div class="phone-mockup">
             <div class="phone-screen">
-              <!-- Para usar screenshot real, descomenta la siguiente línea y agrega tu imagen -->
               <video
                 src="demostracion.mp4"
-                alt="ADIA App Screenshot"
                 class="phone-screenshot"
-              />
-
-              <!-- Placeholder con iconos SVG -->
+                muted
+                playsinline
+                loop
+                autoplay
+              ></video>
               <div class="phone-placeholder">
                 <div class="app-icon-container">
                   <svg
@@ -1221,33 +1119,20 @@
         <p class="section-subtitle">
           Un vistazo rápido a la simplicidad de ADIA
         </p>
-
         <div class="video-wrapper scroll-reveal">
           <div class="video-container" id="videoContainer">
-            <!-- Placeholder - Será reemplazado por video -->
             <div class="video-placeholder" id="videoPlaceholder">
               <div class="play-button">
-                <svg viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
               </div>
-              <p style="font-size: 1.5rem; font-weight: 600">
+              <p style="font-size: 1.4rem; font-weight: 600">
                 Video Demostrativo
               </p>
-              <p style="font-size: 1rem; opacity: 0.8; margin-top: 0.5rem">
+              <p style="font-size: 0.95rem; opacity: 0.8; margin-top: 0.5rem">
                 Click para reproducir
               </p>
             </div>
-
-            <!-- ESPACIO PARA VIDEO - Descomenta una de las siguientes opciones: -->
-
-            <!-- Opción 1: YouTube -->
-            <!-- <iframe src="https://www.youtube.com/embed/TU_VIDEO_ID" allowfullscreen></iframe> -->
-
-            <!-- Opción 2: Vimeo -->
-            <!-- <iframe src="https://player.vimeo.com/video/TU_VIDEO_ID" allowfullscreen></iframe> -->
-
-            <video controls>
+            <video controls style="display: none">
               <source src="lp.mp4" type="video/mp4" />
               Tu navegador no soporta video HTML5.
             </video>
@@ -1262,11 +1147,9 @@
         <div class="testimonials-grid">
           <div class="testimonial-card scroll-reveal">
             <div class="rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span
+              ><span class="star">★</span><span class="star">★</span
+              ><span class="star">★</span>
             </div>
             <p class="testimonial-text">
               Antes llevaba todo en cuadernos y siempre perdía papeles. Con ADIA
@@ -1282,11 +1165,9 @@
           </div>
           <div class="testimonial-card scroll-reveal">
             <div class="rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span
+              ><span class="star">★</span><span class="star">★</span
+              ><span class="star">★</span>
             </div>
             <p class="testimonial-text">
               Pagué solo $4.99 y ya llevo 6 meses usándola. Me ahorro horas de
@@ -1302,11 +1183,9 @@
           </div>
           <div class="testimonial-card scroll-reveal">
             <div class="rating">
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
-              <span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span
+              ><span class="star">★</span><span class="star">★</span
+              ><span class="star">★</span>
             </div>
             <p class="testimonial-text">
               Soy de la vieja escuela pero ADIA es tan fácil que hasta yo pude
@@ -1386,36 +1265,33 @@
                 5 Errores Fatales en la Contabilidad de Tu Negocio
               </h3>
               <div class="blog-meta">
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                    />
-                  </svg>
-                  ADIA Team
-                </span>
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                    /></svg
+                  >ADIA Team</span
+                >
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                    />
-                  </svg>
-                  15 Feb 2026
-                </span>
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                    /></svg
+                  >15 Feb 2026</span
+                >
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"
-                    />
-                  </svg>
-                  5 min
-                </span>
+                    /></svg
+                  >5 min</span
+                >
               </div>
               <p>
                 Descubre los errores más comunes y cómo solucionarlos antes de
                 que te cuesten dinero.
               </p>
-              <a href="#" class="read-more">Leer más &rarr;</a>
+              <a href="#" class="read-more">Leer más →</a>
             </div>
           </article>
           <article class="blog-card scroll-reveal">
@@ -1432,25 +1308,23 @@
                 Cómo Duplicar Tus Ganancias Sin Vender Más
               </h3>
               <div class="blog-meta">
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                    />
-                  </svg>
-                  María González
-                </span>
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                    /></svg
+                  >María González</span
+                >
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                    />
-                  </svg>
-                  10 Feb 2026
-                </span>
+                    /></svg
+                  >10 Feb 2026</span
+                >
               </div>
               <p>El poder del control financiero. Incluye plantilla gratis.</p>
-              <a href="#" class="read-more">Leer más &rarr;</a>
+              <a href="#" class="read-more">Leer más →</a>
             </div>
           </article>
           <article class="blog-card scroll-reveal">
@@ -1467,28 +1341,26 @@
                 De Cuadernos a Digital: Historia de Doña Mary
               </h3>
               <div class="blog-meta">
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                    />
-                  </svg>
-                  Carlos Mendoza
-                </span>
-                <span class="meta-item">
-                  <svg viewBox="0 0 24 24">
+                    /></svg
+                  >Carlos Mendoza</span
+                >
+                <span class="meta-item"
+                  ><svg viewBox="0 0 24 24">
                     <path
                       d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"
-                    />
-                  </svg>
-                  5 Feb 2026
-                </span>
+                    /></svg
+                  >5 Feb 2026</span
+                >
               </div>
               <p>
                 A sus 52 años transformó su pupusería. +35% de claridad
                 financiera.
               </p>
-              <a href="#" class="read-more">Leer más &rarr;</a>
+              <a href="#" class="read-more">Leer más →</a>
             </div>
           </article>
         </div>
@@ -1596,32 +1468,46 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 ADIA Technologies. Hecho en El Salvador</p>
+        <p>&copy; 2026 ADIA Technologies. Hecho en El Salvador 🇸🇻</p>
       </div>
     </footer>
 
     <script>
-      // Navbar scroll effect
+      // Navbar scroll
       window.addEventListener("scroll", () => {
-        const navbar = document.getElementById("navbar");
-        navbar.style.boxShadow =
+        document.getElementById("navbar").style.boxShadow =
           window.scrollY > 50
             ? "0 4px 12px rgba(0,0,0,0.15)"
             : "0 2px 8px rgba(0,0,0,0.1)";
       });
 
-      // Mobile menu toggle
+      // Menú hamburguesa
       const menuToggle = document.getElementById("menuToggle");
       const navLinks = document.getElementById("navLinks");
+
       menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("open", isOpen);
+        // Bloquear scroll del body cuando el menú está abierto
+        document.body.style.overflow = isOpen ? "hidden" : "";
       });
 
-      // Close menu on link click
+      // Cerrar menú al hacer click en un enlace
       document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () =>
-          navLinks.classList.remove("active"),
-        );
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          menuToggle.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+
+      // Cerrar menú al hacer click fuera de él
+      document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          navLinks.classList.remove("active");
+          menuToggle.classList.remove("open");
+          document.body.style.overflow = "";
+        }
       });
 
       // Smooth scroll
@@ -1633,12 +1519,11 @@
         });
       });
 
-      // Scroll reveal animation
+      // Scroll reveal
       const scrollReveal = () => {
         document.querySelectorAll(".scroll-reveal").forEach((el) => {
-          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          if (el.getBoundingClientRect().top < window.innerHeight - 80)
             el.classList.add("active");
-          }
         });
       };
       window.addEventListener("scroll", scrollReveal);
@@ -1655,27 +1540,25 @@
         });
       });
 
-      // Video placeholder click (loads video)
+      // Video placeholder → muestra el video real al hacer click
       document
         .getElementById("videoPlaceholder")
         .addEventListener("click", function () {
-          // Ejemplo: Cargar video de YouTube
-          // Descomenta y reemplaza VIDEO_ID con tu ID real
-          /*
-            this.innerHTML = '<iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" allowfullscreen></iframe>';
-            */
-          alert(
-            "Para activar el video:\n\n1. Edita el archivo HTML\n2. Busca la sección de video\n3. Descomenta el iframe de YouTube o agrega tu video local",
-          );
+          const video = document.querySelector("#videoContainer video");
+          if (video) {
+            this.style.display = "none";
+            video.style.display = "block";
+            video.play();
+          }
         });
 
-      // Contact form submission
+      // Formulario de contacto
       document.getElementById("contactForm").addEventListener("submit", (e) => {
         e.preventDefault();
-        const successMsg = document.getElementById("successMessage");
-        successMsg.classList.add("show");
+        const msg = document.getElementById("successMessage");
+        msg.classList.add("show");
         e.target.reset();
-        setTimeout(() => successMsg.classList.remove("show"), 5000);
+        setTimeout(() => msg.classList.remove("show"), 5000);
       });
     </script>
   </body>
